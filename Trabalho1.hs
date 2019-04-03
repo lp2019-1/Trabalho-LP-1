@@ -13,8 +13,14 @@ type Mercado = [Farmacia]
 type Compra = (Preco, Nome)
 type CompraFlex = (Preco, Nome, Medicamentos)
 
-ue :: String -> Bool
-ue sim = true 
+{-Exemplo de Medicamentos-}
+f_Medicamentos :: Medicamentos
+f_Medicamentos = [("Dipirona", 4), 
+                  ("Buscopan", 1), 
+                  ("Lorotadina", 2), 
+                  ("Stezza",5), 
+                  ("Ritalina", 3), 
+                  ("Viagra", 4)]
 
 adicionarMedicamento :: Medicamento -> Medicamentos -> Medicamentos
 
@@ -39,5 +45,3 @@ comprarMedicamentosPreco :: Medicamentos -> Mercado -> Compra
 comprarMedicamentosPrecoFlex :: Medicamentos -> Mercado -> [CompraFlex]
 
 careTaker :: PlanoMedicamento -> Int -> Medicamentos-> (PlanoMedicamento,Medicamentos)
-
-{-test-}
