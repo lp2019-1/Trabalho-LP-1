@@ -22,26 +22,28 @@ f_Medicamentos = [("Dipirona", 4),
                   ("Ritalina", 3), 
                   ("Viagra", 4)]
 
-adicionarMedicamento :: Medicamento -> Medicamentos -> Medicamentos
+--adicionarMedicamento :: Medicamento -> Medicamentos -> Medicamentos
 
+{-<Questão 02> Função que remove medicamentos da lista-}
 removerMedicamento :: Nome -> Medicamentos -> Medicamentos
+removerMedicamento m fa =  [ (n,q) | (n,q) <- fa, n /= m ]
 
-consultarMedicamento :: Nome -> Medicamentos -> Medicamento
+--consultarMedicamento :: Nome -> Medicamentos -> Medicamento
 
-alterarMedicamento :: Medicamento -> Medicamentos -> Medicamentos
+--alterarMedicamento :: Medicamento -> Medicamentos -> Medicamentos
 
-tomarMedicamentoSOS  ::  Nome -> Medicamentos ->  Medicamentos
+--tomarMedicamentoSOS  ::  Nome -> Medicamentos ->  Medicamentos
 
-tomarMedicamentosHorario :: PlanoMedicamento -> Medicamentos -> HoraAtual -> (PlanoMedicamento,Medicamentos)
+--tomarMedicamentosHorario :: PlanoMedicamento -> Medicamentos -> HoraAtual -> (PlanoMedicamento,Medicamentos)
 
-cadastrarAlarmes :: PlanoMedicamento -> Horario
+--cadastrarAlarmes :: PlanoMedicamento -> Horario
 
-listarMedicamentosComprar :: Medicamentos ->  Medicamentos
+--listarMedicamentosComprar :: Medicamentos ->  Medicamentos
 
-comprarMedicamentosDias ::  PlanoMedicamento -> Medicamentos -> Int -> Medicamentos
+--comprarMedicamentosDias ::  PlanoMedicamento -> Medicamentos -> Int -> Medicamentos
 
-comprarMedicamentosPreco :: Medicamentos -> Mercado -> Compra
+--comprarMedicamentosPreco :: Medicamentos -> Mercado -> Compra
 
-comprarMedicamentosPrecoFlex :: Medicamentos -> Mercado -> [CompraFlex]
+--comprarMedicamentosPrecoFlex :: Medicamentos -> Mercado -> [CompraFlex]
 
-careTaker :: PlanoMedicamento -> Int -> Medicamentos-> (PlanoMedicamento,Medicamentos)
+--careTaker :: PlanoMedicamento -> Int -> Medicamentos-> (PlanoMedicamento,Medicamentos)
