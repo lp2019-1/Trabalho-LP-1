@@ -29,6 +29,9 @@ f_Medicamentos = [("Dipirona", 4),
 somaTuplas :: Medicamentos -> Medicamento -> Medicamento
 somaTuplas [(a,b)] (c,d) = (a, b+d)
 
+subtraiRemedio :: Medicamentos -> Medicamento -> Medicamento
+subtraiRemedio [(a,b)] (c,d) = (a, b-1)
+
 
 -- <\Questão 01/> Função que adiciona remedios na Lista
 adicionarMedicamento :: Medicamento -> Medicamentos -> Medicamentos
@@ -49,7 +52,12 @@ consultarMedicamento m fa = if (elem m(map medicamento fa)) then [(n, q) | (n, q
 
 --alterarMedicamento :: Medicamento -> Medicamentos -> Medicamentos
 
---tomarMedicamentoSOS  ::  Nome -> Medicamentos ->  Medicamentos
+
+-- <\Questão 05/> Função que toma um medicamento de uma lista.
+tomarMedicamentoSOS  ::  Nome -> Medicamentos ->  Medicamentos
+tomarMedicamentoSOS n fa = if (consultarMedicamento n fa == [("",0)]) then fa 
+    else [(subtraiRemedio (consultarMedicamento n fa) (n, -1))] ++ removerMedicamento n fa
+
 
 --tomarMedicamentosHorario :: PlanoMedicamento -> Medicamentos -> HoraAtual -> (PlanoMedicamento,Medicamentos)
 
