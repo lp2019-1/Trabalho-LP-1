@@ -24,11 +24,15 @@ f_Medicamentos = [("Dipirona", 4),
 
 --adicionarMedicamento :: Medicamento -> Medicamentos -> Medicamentos
 
-{-<Questão 02> Função que remove medicamentos da lista-}
+-- <\Questão 02/> Função que remove medicamentos da lista.
 removerMedicamento :: Nome -> Medicamentos -> Medicamentos
 removerMedicamento m fa =  [ (n,q) | (n,q) <- fa, n /= m ]
 
---consultarMedicamento :: Nome -> Medicamentos -> Medicamento
+
+-- <\Questão 03/> Função que consulta na lista de medicamentos.
+consultarMedicamento :: Nome -> Medicamentos -> Medicamentos
+consultarMedicamento m fa = if (elem m(map medicamento fa)) then [(n, q) | (n, q) <- fa, n == m] else [("",0)]
+                       where medicamento (n, q) = n
 
 --alterarMedicamento :: Medicamento -> Medicamentos -> Medicamentos
 
