@@ -50,7 +50,10 @@ consultarMedicamento m fa = if (elem m(map medicamento fa)) then [(n, q) | (n, q
                        where medicamento (n, q) = n
 
 
---alterarMedicamento :: Medicamento -> Medicamentos -> Medicamentos
+-- <\Questão 04/> Função que altera um medicamento da lista.
+alterarMedicamento :: Medicamento -> Medicamentos -> Medicamentos
+alterarMedicamento (n, q) fa = if (consultarMedicamento n fa == [("",0)]) then fa 
+    else [(n,q)] ++ removerMedicamento n fa
 
 
 -- <\Questão 05/> Função que toma um medicamento de uma lista.
