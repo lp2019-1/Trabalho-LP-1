@@ -92,8 +92,8 @@ listarMedicamentosComprar fa = consultarQuantidade 0 fa
 
 
 --comprarMedicamentosDias ::  PlanoMedicamento -> Medicamentos -> Int -> Medicamentos
-comprarMedicamentosDias :: PlanoMedicamento -> Medicamentos -> Int -> Medicamentos
-comprarMedicamentosDias = 
+{-comprarMedicamentosDias :: PlanoMedicamento -> Medicamentos -> Int -> Medicamentos
+comprarMedicamentosDias = -}
 
 --comprarMedicamentosPreco :: Medicamentos -> Mercado -> Compra
 
