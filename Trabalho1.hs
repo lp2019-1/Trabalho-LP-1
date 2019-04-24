@@ -23,11 +23,10 @@ f_Medicamentos = [("Dipirona", 4),
                   ("Ritalina", 3), 
                   ("Viagra", 4),
                   ("Ritalina", 0),
-                  ("Ibuprofeno", 0),
-                  ("​Nimesulida", 8)]
+                  ("Ibuprofeno", 0)]
 
 f_plano :: PlanoMedicamento
-f_plano = f_plano = [("Dipirona",[6,10,14],14),
+f_plano = [("Dipirona",[6,10,14],14),
                      ("Buscopan",[8,10,14],14),
                      ("Dorflex",[11,15,24],11)]
 
