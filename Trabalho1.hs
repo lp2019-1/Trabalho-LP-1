@@ -21,7 +21,16 @@ f_Medicamentos = [("Dipirona", 4),
                   ("Lorotadina", 2), 
                   ("Stezza",5), 
                   ("Ritalina", 3), 
-                  ("Viagra", 4)]
+                  ("Viagra", 4),
+                  ("Ritalina", 0),
+                  ("Ibuprofeno", 0),
+                  ("​Nimesulida", 8)]
+
+f_plano :: PlanoMedicamento
+f_plano = f_plano = [("Dipirona",[6,10,14],14),
+                     ("Buscopan",[8,10,14],14),
+                     ("Dorflex",[11,15,24],11)]
+
 
 {-::Funções auxiliares::-}
 
@@ -32,6 +41,12 @@ somaTuplas [(a,b)] (c,d) = (a, b+d)
 subtraiRemedio :: Medicamentos -> Medicamento -> Medicamento
 subtraiRemedio [(a,b)] (c,d) = (a, b-1)
 
+quickSort [ ] = [ ]
+quickSort (a:as) = quickSort [e | e <- as, e < a] ++ [a] ++quickSort [e | e <- as, e > a]
+
+consultarQuantidade :: Quantidade -> Medicamentos -> Medicamentos
+consultarQuantidade p fa = if (elem p(map medicamento fa)) then [(n, q) | (n, q) <- fa, q == p] else [("",0)]
+                       where medicamento (n, q) = q
 
 -- <\Questão 01/> Função que adiciona remedios na Lista
 adicionarMedicamento :: Medicamento -> Medicamentos -> Medicamentos
@@ -61,14 +76,24 @@ tomarMedicamentoSOS  ::  Nome -> Medicamentos ->  Medicamentos
 tomarMedicamentoSOS n fa = if (consultarMedicamento n fa == [("",0)]) then fa 
     else [(subtraiRemedio (consultarMedicamento n fa) (n, -1))] ++ removerMedicamento n fa
 
-
+{-Questão 06-}
 --tomarMedicamentosHorario :: PlanoMedicamento -> Medicamentos -> HoraAtual -> (PlanoMedicamento,Medicamentos)
 
---cadastrarAlarmes :: PlanoMedicamento -> Horario
+-- <\Questão 07> :: Função que cria uma lista de horarios.
+cadastrarAlarmes :: PlanoMedicamento -> Horario
+cadastrarAlarmes [ ] = [ ]
+cadastrarAlarmes ((_,h,_):fa) = quickSort (h ++ cadastrarAlarmes fa)
 
---listarMedicamentosComprar :: Medicamentos ->  Medicamentos
+
+-- <\Questão 08> :: Função que cria uma lista de medicamentos que estão zerados.
+
+listarMedicamentosComprar :: Medicamentos ->  Medicamentos
+listarMedicamentosComprar fa = consultarQuantidade 0 fa
+
 
 --comprarMedicamentosDias ::  PlanoMedicamento -> Medicamentos -> Int -> Medicamentos
+comprarMedicamentosDias :: PlanoMedicamento -> Medicamentos -> Int -> Medicamentos
+comprarMedicamentosDias = 
 
 --comprarMedicamentosPreco :: Medicamentos -> Mercado -> Compra
 
