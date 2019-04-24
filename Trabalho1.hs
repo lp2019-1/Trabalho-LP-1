@@ -90,7 +90,7 @@ listarMedicamentosComprar :: Medicamentos ->  Medicamentos
 listarMedicamentosComprar fa = consultarQuantidade 0 fa
 
 
---comprarMedicamentosDias ::  PlanoMedicamento -> Medicamentos -> Int -> Medicamentos
+-- <\Questão 09> :: Função de comprar medicamento.
 comprarMedicamentosDias :: PlanoMedicamento -> Medicamentos -> Int -> Medicamentos
 comprarMedicamentosDias [ ] [ ] _ = [ ]
 comprarMedicamentosDias _ [ ] _ = [ ]
