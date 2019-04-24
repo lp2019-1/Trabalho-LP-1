@@ -27,8 +27,8 @@ f_Medicamentos = [("Dipirona", 4),
 
 f_plano :: PlanoMedicamento
 f_plano = [("Dipirona",[6,10,14],14),
-                     ("Buscopan",[8,10,14],14),
-                     ("Dorflex",[11,15,24],11)]
+           ("Buscopan",[8,10,14],14),
+           ("Dorflex",[11,15,24],11)]
 
 
 {-::Funções auxiliares::-}
@@ -91,8 +91,12 @@ listarMedicamentosComprar fa = consultarQuantidade 0 fa
 
 
 --comprarMedicamentosDias ::  PlanoMedicamento -> Medicamentos -> Int -> Medicamentos
-{-comprarMedicamentosDias :: PlanoMedicamento -> Medicamentos -> Int -> Medicamentos
-comprarMedicamentosDias = -}
+comprarMedicamentosDias :: PlanoMedicamento -> Medicamentos -> Int -> Medicamentos
+comprarMedicamentosDias [ ] [ ] _ = [ ]
+comprarMedicamentosDias _ [ ] _ = [ ]
+comprarMedicamentosDias [ ] _ _ = [ ]
+comprarMedicamentosDias ((a,b,c):as) ((x,y):xs) n = if y<(n*length(b)) then (x,length(b)*n-y):comprarMedicamentosDias as xs n
+  else (x,0):comprarMedicamentosDias as xs n
 
 --comprarMedicamentosPreco :: Medicamentos -> Mercado -> Compra
 
